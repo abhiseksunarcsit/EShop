@@ -54,6 +54,15 @@ namespace Yscp.Host.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> LogOut()
+        {
+            await _services.SignOutAsync();
+            return RedirectToAction("Login","Account");
+
+            //RedirectToPage("/Account/SignIn");
+        }
+
 
     }
 }
